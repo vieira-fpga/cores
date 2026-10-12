@@ -1,6 +1,0 @@
-+explicit-begin
-+one-module-per-file
-+mismatched-labels
-+suspicious-semicolon
-+signal-name-style
-+parameter-name-style=parameter_style:ALL_CAPS;localparam_style:ALL_CAPS
