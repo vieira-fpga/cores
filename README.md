@@ -34,5 +34,5 @@ AI was used extensively during the development of these cores:
 
 ## Credits
 
-- Analogue (openFPGA platform and docs) - [Developer Docs](https://www.analogue.co/developer/docs/openfpga)
-- Adam Gastineau (I2S audio and FIFO modules) - [GitHub](https://github.com/agg23) | [Website](https://writings.agg.im/)
+- Analogue - [Website](https://www.analogue.co) | [Developer Docs](https://www.analogue.co/developer/docs/openfpga) | [GitHub](https://github.com/open-fpga)
+- Adam Gastineau `agg23` - [GitHub](https://github.com/agg23) | [Twitter](https://x.com/iam_agg) | [Website](https://writings.agg.im/)
