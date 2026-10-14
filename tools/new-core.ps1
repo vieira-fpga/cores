@@ -7,8 +7,9 @@ Clones core-template at -Ref into cores/<Name> and deletes the clone's .git
 folder, so the core's files belong to this repository. It also deletes the
 clone's .rules.verible_lint and .verible_lint_waivers, because the copies at
 the repository root apply to every core. Then sets shortname, author, url,
-version and date_release in the core's core.json, and stages the folder with
-git add. It doesn't commit.
+version and date_release in the core's core.json, writes a VS Code workspace
+at cores/<Name>/<Name>.code-workspace, and stages the folder with git add. It
+doesn't commit.
 
 The new core is a full copy. Later changes to core-template don't reach it, so
 bring each one over by hand. The script prints the template commit it copied,
@@ -92,6 +93,22 @@ foreach ($key in $metadata.Keys) {
 }
 
 Set-Content -Path $coreJsonPath -Value $coreJson -NoNewline
+
+# Opened on its own, the core folder misses the root's .vscode/settings.json.
+$workspace = @'
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    // Verible's language server runs in the first folder, cores/<name>, so
+    // the waiver path climbs to the repository root.
+    "verible.arguments": ["--rules_config_search", "--waiver_files=../../.verible_lint_waivers"]
+  }
+}
+
+'@
+
+$workspacePath = Join-Path -Path $core -ChildPath "$Name.code-workspace"
+Set-Content -Path $workspacePath -Value $workspace -NoNewline
 
 git.exe -C $root add -- "cores/$Name"
 
