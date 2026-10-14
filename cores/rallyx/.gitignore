@@ -1,0 +1,5 @@
+src/fpga/sim/build/
+# The altera_mf model writes this when a testbench loads build_id.mif.
+src/fpga/apf/build_id.ver
+# vsim writes its transcript to the folder it runs in.
+src/fpga/transcript

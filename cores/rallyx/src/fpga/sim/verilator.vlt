@@ -1,0 +1,18 @@
+`verilator_config
+
+// Vendor code keeps its upstream style, so Verilator doesn't lint it.
+lint_off -file "*apf?*"
+lint_off -file "*vendor?*"
+
+// The bridge runs before reset_n exists, so its registers start from declaration initializers
+// instead of a reset. Everything else resets its registers from reset_n.
+lint_off -rule PROCASSINIT -file "*bridge_map.sv"
+lint_off -rule PROCASSINIT -file "*host_cmd.sv"
+lint_off -rule PROCASSINIT -file "*dataslot_requests.sv"
+lint_off -rule PROCASSINIT -file "*savestate.sv"
+lint_off -rule PROCASSINIT -file "*rtc_osnotify.sv"
+lint_off -rule PROCASSINIT -file "*target_cmd.sv"
+lint_off -rule PROCASSINIT -file "*sync_pulse.sv"
+
+// bridge_pkg defines the target command codes for cores to use. The template issues none.
+lint_off -rule UNUSEDPARAM -file "*bridge_pkg.sv"

@@ -1,0 +1,3 @@
+Rally-X - MorganVieira
+
+Runs the games on the Namco Rally-X arcade board: Rally-X and New Rally-X.
