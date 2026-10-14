@@ -1,0 +1,3 @@
+{
+  "verible.arguments": ["--rules_config_search", "--waiver_files=.verible_lint_waivers"]
+}

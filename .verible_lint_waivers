@@ -1,0 +1,19 @@
+# Every .v file here is vendor code: the APF framework from Analogue and
+# Quartus-generated IP. Our RTL is .sv, so lint skips .v files.
+waive --rule=always-comb --location="\.v$"
+waive --rule=case-missing-default --location="\.v$"
+waive --rule=explicit-begin --location="\.v$"
+waive --rule=explicit-parameter-storage-type --location="\.v$"
+waive --rule=forbid-defparam --location="\.v$"
+waive --rule=module-filename --location="\.v$"
+waive --rule=module-port --location="\.v$"
+waive --rule=no-tabs --location="\.v$"
+waive --rule=no-trailing-spaces --location="\.v$"
+waive --rule=one-module-per-file --location="\.v$"
+waive --rule=signal-name-style --location="\.v$"
+waive --rule=unpacked-dimensions-range-ordering --location="\.v$"
+# core/vendor/ holds modules vendored from other projects, which keep their upstream style.
+waive --rule=case-missing-default --location="core/vendor/"
+waive --rule=explicit-parameter-storage-type --location="core/vendor/"
+waive --rule=forbid-defparam --location="core/vendor/"
+waive --rule=generate-label --location="core/vendor/"
